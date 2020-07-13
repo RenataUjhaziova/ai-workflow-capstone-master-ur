@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-5">Welcome to AAVAIL company's home page!</h1>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Learning API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h2>Predict Revenue</h2>
+     <h4>Enter Country & Date to get the predicted revenue</h4>
+     <!-- Main Input For Receiving Query to our ML -->
+     <form method="POST">
+      Enter Country:<br>
+      <!-- <input type="text" name="Country" placeholder="Country" required="required" /><br> -->
+      <select name="Country">
+          <option value="all">All countries</option>
+          <option value="eire">EIRE</option>
+          <option value="france">France</option>
+          <option value="germany">Germany</option>
+          <option value="hong_kong">Hong Kong</option>
+          <option value="netherlands">Netherlands</option>
+          <option value="norway">Norway</option>
+          <option value="portugal">Portugal</option>
+          <option value="singapore">Singapore</option>
+          <option value="spain">Spain</option>
+          <option value="united_kingdom">United Kingdom</option>
+      </select><br>
+      Enter Date:<br>
+      <input type="date" name="Date" data-date="" data-date-format="YYYY MMMM DD" value="2018-01-01"><br><br>
+      <!-- <input type="submit"> -->
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+     </form><br>
+    <br>
+   <br>
+   {{ output_text }}
+
+ </div>
+</body>
+
+{% endblock %}
